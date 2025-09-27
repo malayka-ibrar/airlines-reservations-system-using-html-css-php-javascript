@@ -1,0 +1,346 @@
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .header-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+
+     body {
+    position: relative; /* Ensure the body is positioned relative for the pseudo-element */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+    margin: 0;
+    padding-bottom: 80px;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://th.bing.com/th/id/OIP.3cW2lqmDSi9qEsBtEdkY1QHaDY?w=920&h=420&rs=1&pid=ImgDetMain') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px); /* Adjust the blur level here */
+    z-index: -1; /* Place it behind the content */
+    opacity: 0.5; /* Adjust the opacity for transparency */
+}
+h1 {
+        margin-bottom: 15px;
+        color: #0077cc;
+        text-shadow: 1px 1px 2px #b0d4ff;
+    }
+
+    /* Modal styles for login/signup */
+    .modal {
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 8% auto;
+        padding: 20px 30px;
+        border-radius: 8px;
+        max-width: 400px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .modal-content h2 {
+        margin-bottom: 15px;
+        color: #0077cc;
+    }
+.modal-content label {
+        margin-top: 10px;
+        font-weight: 600;
+    }
+
+    .modal-content input, .modal-content select {
+        width: 100%;
+        margin-top: 5px;
+        padding: 8px 10px;
+        border-radius: 5px;
+        border: 1px solid #bbb;
+    }
+
+    .modal-content button {
+        margin-top: 15px;
+        width: 100%;
+        padding: 10px 0;
+        background: #0077cc;
+        color: white;
+        font-weight: 700;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .modal-content button:hover {
+        background: #005fa3;
+    }
+
+    .close {
+ color: #000;
+    }
+
+    /* Adjust header buttons */
+    #loginBtn, #signupBtn {
+        background: #0077cc;
+        border: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 5px;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #loginBtn:hover, #signupBtn:hover {
+        background: #005fa3;
+    }
+
+       form, table {
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px 20px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        max-width: 900px;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    label {
+        display: block;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    input[type="text"], input[type="date"], select {
+        width: 100%;
+        padding: 8px 10px;
+        border-radius: 5px;
+        border: 1px solid #bbb;
+        margin-top: 5px;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus, input[type="date"]:focus, select:focus {
+        border-color: #0077cc;
+        outline: none;
+    }
+
+    button {
+        margin-top: 15px;
+        background: #0077cc;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background: #005fa3;
+    }
+
+    table {
+        border-collapse: collapse;
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background: #0077cc;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .error {
+        color: #a94442;
+        background: #f2dede;
+        padding: 8px 12px;
+        border: 1px solid #ebccd1;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .success {
+        color: #3c763d;
+        background: #dff0d8;
+        padding: 8px 12px;
+        border: 1px solid #d6e9c6;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .flex-row {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .flex-grow {
+        flex-grow: 1;
+    }
+
+    @media (max-width: 700px) {
+        form, table {
+            padding: 15px 10px;
+        }
+        .flex-row {
+            flex-direction: column;
+        }
+    }
+
+    /* Show More flights */
+    .hidden-flights {
+        display: none;
+    }
+
+    #showMoreBtnAvailable, #showMoreBtnAll {
+        display: block;
+        margin: 10px auto 30px auto;
+        background-color: #0077cc;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #showMoreBtnAvailable:hover, #showMoreBtnAll:hover {
+        background-color: #005fa3;
+    }
+
+    #feedback-section {
+        max-width: 900px;
+        width: 100%;
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px 25px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+    }
+
+    #feedback-section h2 {
+        color: #0077cc;
+        margin-bottom: 15px;
+    }
+
+    #feedback-form label {
+        font-weight: 600;
+        margin-top: 12px;
+        display: block;
+    }
+
+    #feedback-form input[type="text"],
+    #feedback-form select,
+    #feedback-form textarea {
+        width: 100%;
+        padding: 8px 10px;
+        border-radius: 5px;
+        border: 1px solid #bbb;
+        margin-top: 5px;
+        resize: vertical;
+        transition: border-color 0.3s;
+    }
+
+    #feedback-form input[type="text"]:focus,
+    #feedback-form select:focus,
+    #feedback-form textarea:focus {
+        border-color: #0077cc;
+        outline: none;
+    }
+
+    #feedback-form button {
+        margin-top: 15px;
+        background: #0077cc;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    #feedback-form button:hover {
+        background: #005fa3;
+    }
+
+    .feedback-item {
+        border-top: 1px solid #ddd;
+        padding: 12px 0;
+    }
+
+    .feedback-item:first-child {
+        border-top: none;
+    }
+
+    .feedback-item h4 {
+        margin-bottom: 5px;
+        color: #0077cc;
+    }
+
+    .feedback-rating {
+        color: #ffaa00;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .feedback-comment {
+        font-style: italic;
+        color: #555;
+    }
+
+    .feedback-date {
+        font-size: 0.85em;
+        color: #999;
+        margin-top: 3px;
+    }
+
+    /* Footer Styling */
+    footer.footer {
+        text-align: center;
+        padding: 15px 10px;
+        background-color: #0077cc;
+        color: white;
+        font-weight: 600;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
